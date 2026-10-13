@@ -44,6 +44,7 @@ Qué hace cada operación está en [`spec.md`](spec.md); qué se guarda, en [`da
 | `code` | Estado | Origen |
 |---|---|---|
 | `INVALID_CREDENTIALS` | 401 | CA-01.2 |
+| `UNAUTHORIZED` | 401 | CA-01.3 (sin token, token inválido o vencido) |
 | `FORBIDDEN_ROLE` | 403 | CA-01.3 |
 | `NOT_FOUND` | 404 | Cualquier recurso |
 | `USERNAME_TAKEN` | 409 | CA-02.2 |
