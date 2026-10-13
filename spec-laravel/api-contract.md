@@ -105,8 +105,9 @@ Qué hace cada operación está en [`spec.md`](spec.md); qué se guarda, en [`da
 | POST | `/books` | admin | Crea |
 | PUT | `/books/{id}` | admin | Reemplaza título, autor, categoría y total |
 | DELETE | `/books/{id}` | admin | Baja lógica |
-| PUT | `/books/{id}/cover` | admin | Sube portada (`multipart/form-data`, campo `file`) |
-| DELETE | `/books/{id}/cover` | admin | Quita la portada |
+| PUT | `/books/{id}/cover` | admin | Sube portada (`multipart/form-data`, campo `file`) → 200 con el libro |
+| GET | `/books/{id}/cover` | autenticado | Devuelve el binario de la portada o 404 |
+| DELETE | `/books/{id}/cover` | admin | Quita la portada → 204 |
 
 Libro (respuesta):
 

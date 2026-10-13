@@ -45,6 +45,7 @@ Como usuario quiero autenticarme para operar según mi rol.
 - **CA-03.3** Total de ejemplares ≥ 1. Cambiar el total ajusta los disponibles en la misma diferencia y **nunca** deja disponibles < 0 (422).
 - **CA-03.4** Subir portada (JPG/PNG, máx. 2 MB) guarda una **clave opaca**; sin portada el campo es `null`, nunca cadena vacía.
 - **CA-03.5** Eliminar un libro es **baja lógica**: deja de aparecer en el catálogo pero sigue en los préstamos pasados. Un libro con alguna línea sin devolver no se da de baja (409).
+- **CA-03.6** Quitar la portada deja `cover_key` en `null`, nunca cadena vacía; el binario se borra después de confirmar el cambio.
 
 ### HU-04 · Buscar libros
 - **CA-04.1** Búsqueda por texto parcial en título o autor, filtro por categoría, solo libros activos, orden por título, paginada (`page`, `size`, máx. 50).
