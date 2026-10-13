@@ -11,12 +11,14 @@ técnica: no cambia el alcance ni las reglas de negocio de [`spec-.net/`](spec-.
 <cuerpo opcional: por qué, no qué>
 
 <pie opcional>
-Refs: T-xx, HU-xx, CA-xx.x, RN-x, RNF-x, ADR-xxx, Inc #n
+Refs: T-xx, HU-xx, CA-xx.x, RN-x, RNF-x, ADR-xxx, Issue #n
 ```
 
-- **Resumen**: imperativo, minúscula inicial, sin punto final, ≤ 72 caracteres.
-- **Idioma**: tipos y ámbitos en inglés (estándar); redacción en español (artículo XI de la constitución).
-- **Cuerpo**: explica la motivación; se separa del resumen con una línea en blanco. Ancho ≤ 72 caracteres.
+- **Resumen**: imperativo, lowercase start, no trailing period, ≤ 72 characters.
+- **Idioma del mensaje: inglés** (tipo, ámbito, resumen, cuerpo y pies). La documentación
+  del producto y los mensajes al usuario siguen en español (artículo XI de la constitución).
+- **Cuerpo**: explica el porqué, no el qué; se separa del resumen con una línea en blanco.
+  Ancho ≤ 72 caracteres.
 
 ## Tipos
 
@@ -54,26 +56,26 @@ En `docs` se prefiere el archivo afectado cuando aporta precisión (p. ej. `docs
 ## Ejemplos
 
 ```text
-docs(data-model): documentar testigo de versión de book (Inc #1)
+docs(data-model): declare the book version witness (Issue #1)
 
-ADR-002, plan D-04 y T-13 exigen un testigo de versión en book, pero §3
-no lo declaraba y §10 habría acusado la columna como sobrante. Se
-documenta la columna version y se reclasifica su marca en §4.
+ADR-002, plan D-04 and T-13 require a version witness on book, but §3
+did not declare it and §10 would flag the column as extra. The version
+column is documented and its mark in §4 is reclassified.
 
-Refs: ADR-002, T-13, Inc #1
+Refs: ADR-002, T-13, Issue #1
 ```
 
 ```text
-feat(loans): registrar préstamo con límite de 3 y control de vencidos
+feat(loans): register loans with limit of 3 and overdue checks
 
-Implementa HU-06 detrás de LendBooksService. La decisión de Quantity
-(>= 0) se fijó antes en docs: 9f3a1c2.
+Implements HU-06 behind LendBooksService. The Quantity (>= 0) decision
+was fixed in docs first: 9f3a1c2.
 
 Refs: HU-06, CA-06.4, CA-06.5, T-09
 ```
 
 ```text
-test(health): evidenciar GET /api/v1/health (T-01)
+test(health): cover GET /api/v1/health (T-01)
 
 Refs: T-01
 ```
