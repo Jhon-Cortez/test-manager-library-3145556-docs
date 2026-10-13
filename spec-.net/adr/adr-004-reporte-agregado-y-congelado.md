@@ -2,7 +2,7 @@
 
 - **Estado:** aceptada
 - **Contexto:** el reporte de más prestados (HU-10) cruza `loan` y `loan_item` sobre un rango. Si leyera el título o la categoría del catálogo
-  vivo, renombrar un libro o una categoría cambiaría un reporte de un periodo ya cerrado.
+  vivo, renombrar un libro o cambiarlo de categoría cambiaría un reporte de un periodo ya cerrado.
 - **Decisión:** (1) el reporte **no se persiste**: se calcula con una sola consulta agregada por un puerto de lectura. (2) Agrupa por
   `book_id, book_title, category_name` **tal como quedaron congelados en la línea**. (3) `loan_item.category_name` **no tiene FK**
   a propósito. (4) Si un libro cambió de categoría dentro del rango, el reporte muestra **dos filas**: no elige un ganador.

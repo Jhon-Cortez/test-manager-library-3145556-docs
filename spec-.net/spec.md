@@ -84,7 +84,7 @@ Como usuario quiero autenticarme para operar según mi rol.
 - **CA-10.1** Dado un rango de fechas, una fila por **libro y nombre de categoría congelado**, con la cantidad de veces prestado, ordenado de mayor a menor.
 - **CA-10.2** Fin anterior al inicio: 422. Rango sin préstamos: lista vacía, no error.
 - **CA-10.3** El reporte **no** se desglosa por bibliotecario ni por socio.
-- **CA-10.4** Un reporte de un periodo cerrado **no cambia** aunque luego se renombre el libro o su categoría.
+- **CA-10.4** Un reporte de un periodo cerrado **no cambia** aunque luego se renombre el libro o se le cambie de categoría.
 - **CA-10.5** Solo `admin`.
 
 ## 4. Reglas de negocio
