@@ -33,7 +33,7 @@ src/Library/
 ├── domain/              # Book, Loan, LoanItem, Member, User; Isbn, Quantity, DateRange, DocumentNumber
 ├── application/
 │   ├── ports/outbound/  # BookRepository, LoanRepository, MemberRepository, UserRepository,
-│   │                    # ReportReader, Clock, PasswordHasher, TokenIssuer, CoverStorage
+│   │                    # CategoryReader, ReportReader, Clock, PasswordHasher, TokenIssuer, CoverStorage
 │   └── services/        # LoginService, CreateLibrarianService; CreateBookService, UpdateBookService,
 │                        # DeleteBookService, SearchBooksService, UploadCoverService, RemoveCoverService,
 │                        # ListCategoriesService; CreateMemberService, SearchMembersService, GetMemberService;
