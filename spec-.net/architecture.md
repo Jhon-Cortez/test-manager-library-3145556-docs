@@ -46,7 +46,7 @@ src/Library/
 
 | Raíz | Contiene | Invariantes que defiende |
 |---|---|---|
-| `Book` | `Isbn`, copias totales y disponibles, baja lógica | disponibles entre 0 y total; total ≥ 1; título no vacío |
+| `Book` | `Isbn`, copias totales y disponibles, testigo de versión, baja lógica | disponibles entre 0 y total; total ≥ 1; título no vacío |
 | `Loan` | colección de `LoanItem` | 1 a 3 líneas; sin libro repetido; vencimiento a 14 días; inmutable salvo devolución |
 | `Member` | documento | documento obligatorio y único |
 | `User` | rol, hash | nombre normalizado; rol en (`admin`, `librarian`) |

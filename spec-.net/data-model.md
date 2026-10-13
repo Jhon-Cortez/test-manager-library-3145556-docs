@@ -73,6 +73,7 @@ Ninguna columna lleva `DEFAULT`: los valores los pone el dominio.
 | `available_copies` | `integer` | no | Entre 0 y `total_copies` |
 | `cover_key` | `varchar(512)` | **sí** | Clave opaca; nunca ruta ni bytes; nunca cadena vacía |
 | `deleted_at` | `timestamptz` | sí | Baja lógica. Nula = activo |
+| `version` | `integer` | no | Testigo de concurrencia optimista ([ADR-002](adr/adr-002-concurrencia-optimista.md)); lo incrementa el dominio al guardar |
 
 **`member`**
 
@@ -131,6 +132,7 @@ porque ningún requisito las pide.
 | `loan_item.loan_id` → `loan.id` CASCADE | FK | **motor** |
 | `loan_item.book_id` → `book.id` RESTRICT | FK | **motor** |
 | `0 <= available_copies <= total_copies` | `ck_book_available_range` | **motor** — última barrera de concurrencia |
+| Testigo de versión de `book` | columna `book.version` | **solo dominio** (ADR-002); sin `DEFAULT`, arranca en 1 |
 | `total_copies >= 1` | `ck_book_total_positive` | **pendiente (T-18)** · hoy solo dominio |
 | Único `(loan_id, book_id)` | índice único | **motor** |
 | `role` en (`admin`,`librarian`) | `ck_user_role` | **pendiente (T-18)** · hoy solo dominio |
