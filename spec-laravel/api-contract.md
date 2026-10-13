@@ -182,7 +182,7 @@ Una fila por `book_id + book_title + category_name` congelados. Orden: `times_bo
 
 | Aspecto | Regla |
 |---|---|
-| Token | JWT firmado, 8 horas, con `sub` y `role`. Sin datos personales dentro |
+| Token | JWT firmado, 8 horas, con `sub` (UUID del usuario) y `role`. Sin datos personales dentro |
 | Contraseñas | Solo se guarda el hash; el hash nunca sale en ninguna respuesta |
 | Autorización | Se evalúa en cada endpoint por rol; un 403 no revela si el recurso existe |
 | CORS | Solo el origen del frontend configurado por entorno |
