@@ -3,7 +3,7 @@
 - **Estado:** aceptada
 - **Contexto:** una línea de préstamo apunta a un libro. Si el libro se borra físicamente, el historial y el reporte quedan rotos.
 - **Decisión:** el libro lleva `deleted_at`. Dar de baja lo llena; el catálogo filtra por `deleted_at IS NULL` en un único lugar
-  (filtro global). Un libro con préstamos abiertos **no** se da de baja (409 `BOOK_HAS_OPEN_LOANS`). La unicidad del ISBN es un
+  (filtro global). Un libro con alguna línea sin devolver **no** se da de baja (409 `BOOK_HAS_OPEN_LOANS`). La unicidad del ISBN es un
   índice **parcial** sobre libros activos, así un ISBN dado de baja puede volver a registrarse.
 - **Alternativas descartadas:** borrado físico con cascada (destruye el histórico); marcar `active = false` (no dice cuándo).
 - **Consecuencias:** `loan_item.book_id` lleva una FK `RESTRICT` como **barrera de última instancia**: un `DELETE` manual o un cambio de

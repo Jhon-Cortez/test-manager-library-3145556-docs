@@ -36,7 +36,7 @@ implemente en Python o .NET. Qué hace cada operación está en [`spec.md`](spec
 | 401 | Sin token, token inválido o vencido, credenciales inválidas |
 | 403 | Rol insuficiente |
 | 404 | No existe (o está dado de baja) |
-| 409 | Conflicto de estado: duplicado, sin ejemplares, ya devuelto, socio con vencidos, libro con préstamos abiertos |
+| 409 | Conflicto de estado: duplicado, sin ejemplares, ya devuelto, socio con vencidos, libro con líneas sin devolver |
 | 422 | Validación: campo inválido, regla de entrada rota, rango de fechas invertido |
 
 ## 2. Códigos de error de negocio
