@@ -1,7 +1,7 @@
 # Contrato de la API — Manager Library
 
-El contrato HTTP es **independiente del lenguaje**: quien lo implemente en React + Laravel debe respetarlo igual que quien lo
-implemente en Python o .NET. Qué hace cada operación está en [`spec.md`](spec.md); qué se guarda, en [`data-model.md`](data-model.md).
+El contrato HTTP es **independiente del lenguaje**: se respeta igual en cualquier stack; el reto lo implementa en React + Laravel.
+Qué hace cada operación está en [`spec.md`](spec.md); qué se guarda, en [`data-model.md`](data-model.md).
 
 ## 1. Convenciones
 

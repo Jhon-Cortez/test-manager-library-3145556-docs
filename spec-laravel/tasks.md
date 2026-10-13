@@ -1,4 +1,4 @@
-# Tareas — Manager Library (.NET)
+# Tareas — Manager Library (Laravel)
 
 Cada tarea termina cuando su **evidencia** existe y se puede ejecutar (artículo XII). Estado inicial de todas: **pendiente**.
 
@@ -22,7 +22,7 @@ Cada tarea termina cuando su **evidencia** existe y se puede ejecutar (artículo
 | T-16 | Adaptador HTTP: rutas de [`api-contract.md`](api-contract.md), cuerpo de error único, autorización por rol | T-10, T-11, T-14, T-15 | Prueba de contrato recorre todas las rutas y todos los códigos de §2 |
 | T-17 | Composición y arranque (admin inicial desde entorno) | T-16 | El sistema arranca con la base vacía y se puede iniciar sesión como admin |
 | T-18 | Bajar a la base las invariantes **solo dominio**: `ck_book_total_positive`, `ck_user_role`, `ck_book_isbn_digits`, `ck_book_title_not_empty`, `ck_book_cover_key_not_empty`, `ck_user_username_normalized`, `ck_member_document_not_empty` | T-12 | Un `INSERT` por `psql` que las viole falla; `data-model.md` §4 se actualiza |
-| T-19 | Pruebas de arquitectura (artículos I, II y III) | T-17 | NetArchTest pasa y falla si se introduce una importación prohibida |
+| T-19 | Pruebas de arquitectura (artículos I, II y III) | T-17 | El test de arquitectura pasa y falla si se introduce un `use` prohibido |
 | T-20 | `infra`: `docker compose up` levanta motor vacío, API y frontend | T-17 | Un comando; la base arranca sin tablas hasta correr las migraciones |
 | T-21 | `tool`: sembrador de demostración **por la API** (≥ 40 libros, 10 socios, 15 préstamos, 3 vencidos) | T-17 | Tras correrlo, `/loans/overdue` devuelve 3 líneas y el reporte tiene filas |
 | T-22 | `app`: login, catálogo, socios, prestar, devolver, vencidos, reporte | T-16 | Recorrido manual de punta a punta en la feria |

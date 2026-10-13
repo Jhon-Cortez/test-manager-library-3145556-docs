@@ -1,7 +1,7 @@
 # Convención de commits — Manager Library
 
 Aplica a los **seis repositorios** del reto (`docs`, `api`, `app`, `page`, `infra`, `tool`). Es una convención
-técnica: no cambia el alcance ni las reglas de negocio de [`spec-.net/`](spec-.net/) ni de [`spec-python/`](spec-python/).
+técnica: no cambia el alcance ni las reglas de negocio de [`spec-laravel/`](spec-laravel/) ni de [`spec-python/`](spec-python/).
 
 ## Formato
 

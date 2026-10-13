@@ -1,4 +1,4 @@
-# Constitución — Manager Library (.NET)
+# Constitución — Manager Library (Laravel)
 
 Principios innegociables del proyecto. No son estilo ni preferencia: cada artículo trae **cómo se verifica**, porque un principio que
 nadie puede comprobar es una intención. Un cambio que viole un artículo se rechaza sin discutir el resto.
@@ -7,22 +7,22 @@ nadie puede comprobar es una intención. Un cambio que viole un artículo se rec
 
 ## Artículo I — El dominio no depende de nada
 
-`src/Library.Domain/` no importa ningún otro módulo del proyecto ni librerías de terceros: solo la biblioteca base (`record`, `DateTimeOffset`); ni EF Core, ni ASP.NET, ni FluentValidation.
+`app/Domain/` no importa ningún otro módulo del proyecto ni librerías de terceros: solo la biblioteca base de PHP (`readonly`, `DateTimeImmutable`, enums); ni Eloquent, ni el HTTP de Laravel, ni validadores de terceros.
 
 **Por qué:** es lo único que permite probar las invariantes sin base de datos, sin servidor y sin contenedor, y cambiar de ORM sin tocar reglas.
-**Verificación:** NetArchTest prohíbe que el dominio dependa de `application`, `adapters` o `bootstrap`.
+**Verificación:** un test de arquitectura prohíbe que `Domain` dependa de `Application`, `Adapters` ni `Bootstrap`.
 
 ## Artículo II — El núcleo declara sus puertos; el mundo los implementa
 
 La capa de aplicación solo conoce el dominio. Todo lo que necesita del exterior (repositorios, reloj, hash de claves, almacenamiento de
 portadas, generación de tokens) lo expresa como un **puerto que ella misma define**. Ningún tipo de framework o de ORM aparece en la firma de un puerto.
 
-**Verificación:** NetArchTest impide que `application` importe `adapters`. Los tests de aplicación corren con fakes y sin referenciar `adapters`.
+**Verificación:** un test de arquitectura impide que `Application` importe `Adapters`. Los tests de aplicación corren con fakes y sin referenciar `Adapters`.
 
 ## Artículo III — Un único punto de composición
 
-Un solo módulo (`src/Library.Bootstrap/Composition/PortBindings.cs`) es donde un puerto se encuentra con su adaptador. Fuera de él no se instancia infraestructura.
-**Verificación:** ninguna instanciación de una clase de `adapters` fuera de ese módulo; se comprueba con un test de arquitectura.
+Un solo módulo (`app/Bootstrap/Composition/PortBindings.php`) es donde un puerto se encuentra con su adaptador. Fuera de él no se instancia infraestructura.
+**Verificación:** ninguna instanciación de una clase de `Adapters` fuera de ese módulo; se comprueba con un test de arquitectura.
 
 ## Artículo IV — SOLID no es decorativo
 
@@ -37,7 +37,7 @@ Un solo módulo (`src/Library.Bootstrap/Composition/PortBindings.cs`) es donde u
 ## Artículo V — El esquema es propiedad de las migraciones
 
 El repositorio `infra` levanta un motor **vacío**. Todo el DDL (tablas, índices, restricciones, extensiones y semilla) vive en las migraciones de
-la aplicación (migraciones de EF Core). Ver [ADR-001](adr/adr-001-propiedad-del-esquema.md).
+la aplicación (migraciones de Laravel). Ver [ADR-001](adr/adr-001-propiedad-del-esquema.md).
 **Verificación:** `infra` no contiene `CREATE TABLE`.
 
 ## Artículo VI — Las invariantes que la base puede imponer, la base las impone

@@ -20,7 +20,7 @@ Cada regla lleva una de **tres marcas**: **motor** (la impone la base), **solo d
 | Restricción escrita a mano | `ck_{tabla}_{regla}` | `ck_book_available_range` |
 | Esquema | `library` | `library.loan` |
 
-`user` se escribe `library."user"` en SQL a mano; el ORM lo entrecomilla solo.
+`user` se escribe `library."user"` en SQL a mano; Eloquent lo entrecomilla solo.
 
 ## 1. Glosario
 

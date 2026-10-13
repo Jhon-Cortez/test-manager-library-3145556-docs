@@ -12,20 +12,19 @@ con el spec planteado**.
 
 1. Hacer fork, a su cuenta de GitHub, de cada repositorio de la tabla del final.
 2. Leer el spec en [`test-manager-library-3145556-docs`](https://github.com/code-sena/test-manager-library-3145556-docs).
-   Se entrega en dos versiones: `spec-python/` y `spec-.net/`.
+   Se entrega en dos versiones: `spec-python/` y `spec-laravel/`.
 3. Desarrollar en los forks.
 
 ## El reto se desarrolla con React y PHP (Laravel)
-
-El spec está escrito para Python y para .NET, pero el reto **no** se hace en esos lenguajes:
 
 | Capa | Tecnología del reto |
 |---|---|
 | Frontend | React |
 | Backend | PHP con Laravel |
 
-Lo que el spec define sobre el negocio —historias, criterios de aceptación, reglas, contrato de la
-API, modelo de datos— se respeta. Lo que define sobre la tecnología se traduce a React y Laravel.
+`spec-laravel/` está escrito para ese stack. `spec-python/` describe el mismo producto para un backend
+Python: las dos versiones comparten historias, criterios de aceptación, reglas, contrato de la API y
+modelo de datos; solo cambian las decisiones de tecnología.
 
 ## La prueba no consiste en escribir el código
 
@@ -43,11 +42,11 @@ No hay prórroga: suban avances parciales con commits pequeños durante la prueb
 | Carpeta | Contenido |
 |---|---|
 | [`spec-python/`](spec-python/) | El spec de Manager Library escrito para un backend Python |
-| [`spec-.net/`](spec-.net/) | El mismo sistema especificado para un backend .NET |
+| [`spec-laravel/`](spec-laravel/) | El mismo sistema especificado para Laravel (stack del reto) |
 | [`CONVENCION-DE-COMMITS.md`](CONVENCION-DE-COMMITS.md) | Convención de commits de los seis repositorios |
 
 Las dos versiones describen el **mismo producto** (las mismas historias, reglas de negocio y
-endpoints); cambian las decisiones de tecnología. Ninguna de las dos es el stack del reto.
+endpoints); cambian las decisiones de tecnología. `spec-laravel/` es la que corresponde al stack del reto.
 
 ## Cómo se lee el spec
 
@@ -64,7 +63,7 @@ En cualquiera de las dos carpetas, en este orden:
 
 | Repositorio | Qué va ahí |
 |---|---|
-| [`test-manager-library-3145556-docs`](https://github.com/code-sena/test-manager-library-3145556-docs) | El spec: `spec-python/` y `spec-.net/` |
+| [`test-manager-library-3145556-docs`](https://github.com/code-sena/test-manager-library-3145556-docs) | El spec: `spec-python/` y `spec-laravel/` |
 | [`test-manager-library-3145556-api`](https://github.com/code-sena/test-manager-library-3145556-api) | Backend en PHP (Laravel) |
 | [`test-manager-library-3145556-app`](https://github.com/code-sena/test-manager-library-3145556-app) | Frontend en React |
 | [`test-manager-library-3145556-page`](https://github.com/code-sena/test-manager-library-3145556-page) | Sitio público estático de presentación |

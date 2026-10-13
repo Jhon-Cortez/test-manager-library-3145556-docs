@@ -1,4 +1,4 @@
-# Arquitectura — Manager Library (.NET)
+# Arquitectura — Manager Library (Laravel)
 
 Arquitectura **hexagonal** (puertos y adaptadores). Las reglas de dependencia son los artículos I a III de [`constitution.md`](constitution.md).
 
@@ -7,14 +7,14 @@ Arquitectura **hexagonal** (puertos y adaptadores). Las reglas de dependencia so
 ```mermaid
 flowchart LR
     subgraph Entrada
-      HTTP["adapters/inbound/http<br/>(ASP.NET Core (Minimal API))"]
+      HTTP["adapters/inbound/http<br/>(Laravel HTTP)"]
     end
     subgraph Núcleo
       APP["application<br/>casos de uso + puertos"]
       DOM["domain<br/>agregados y objetos de valor"]
     end
     subgraph Salida
-      DB["adapters/outbound/persistence<br/>(EF Core 8 + migraciones de EF)"]
+      DB["adapters/outbound/persistence<br/>(Eloquent + migraciones)"]
       STO["adapters/outbound/storage<br/>portadas"]
       SEC["adapters/outbound/security<br/>hash y token"]
     end
@@ -29,20 +29,20 @@ Las flechas de dependencia apuntan **hacia adentro**. `bootstrap` es el único q
 ## 2. Estructura de carpetas
 
 ```text
-src/Library/
-├── domain/              # Book, Loan, LoanItem, Member, User; Isbn, Quantity, DateRange, DocumentNumber
-├── application/
-│   ├── ports/outbound/  # BookRepository, LoanRepository, MemberRepository, UserRepository,
+app/
+├── Domain/              # Book, Loan, LoanItem, Member, User; Isbn, Quantity, DateRange, DocumentNumber
+├── Application/
+│   ├── Ports/Outbound/  # BookRepository, LoanRepository, MemberRepository, UserRepository,
 │   │                    # CategoryReader, ReportReader, Clock, PasswordHasher, TokenIssuer, CoverStorage
-│   └── services/        # LoginService, CreateLibrarianService; CreateBookService, UpdateBookService,
+│   └── Services/        # LoginService, CreateLibrarianService; CreateBookService, UpdateBookService,
 │                        # DeleteBookService, SearchBooksService, UploadCoverService, RemoveCoverService,
 │                        # ListCategoriesService; CreateMemberService, SearchMembersService, GetMemberService;
 │                        # LendBooksService, ReturnItemService, GetLoanService, ListLoansService,
 │                        # OverdueService, MostBorrowedReportService
-├── adapters/
-│   ├── inbound/http/    # routers/controladores, esquemas de petición, manejo de errores
-│   └── outbound/        # persistence/, storage/, security/
-└── bootstrap/composition/   # src/Library.Bootstrap/Composition/PortBindings.cs — único punto de composición
+├── Adapters/
+│   ├── Inbound/Http/    # rutas, controllers, esquemas de petición, manejo de errores
+│   └── Outbound/        # Persistence/, Storage/, Security/
+└── Bootstrap/Composition/   # app/Bootstrap/Composition/PortBindings.php — único punto de composición
 ```
 
 ## 3. Agregados
