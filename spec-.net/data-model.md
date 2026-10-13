@@ -136,11 +136,17 @@ porque ningún requisito las pide.
 | `total_copies >= 1` | `ck_book_total_positive` | **pendiente (T-18)** · hoy solo dominio |
 | Único `(loan_id, book_id)` | índice único | **motor** |
 | `role` en (`admin`,`librarian`) | `ck_user_role` | **pendiente (T-18)** · hoy solo dominio |
+| `isbn` solo dígitos (13) | `ck_book_isbn_digits` | **pendiente (T-18)** · hoy solo dominio |
+| `title` no vacío | `ck_book_title_not_empty` | **pendiente (T-18)** · hoy solo dominio |
+| `cover_key` nunca cadena vacía | `ck_book_cover_key_not_empty` | **pendiente (T-18)** · hoy solo dominio |
+| `username` en minúsculas y recortado | `ck_user_username_normalized` | **pendiente (T-18)** · hoy solo dominio |
+| `document_number` no vacío | `ck_member_document_not_empty` | **pendiente (T-18)** · hoy solo dominio |
 | Máximo 3 sin devolver por socio | — | **solo dominio** (no expresable en un `CHECK`) |
 | Socio con vencidos no pide | — | **solo dominio** |
 | Descontar ejemplar y crear línea son una operación | — | **solo dominio** (una transacción) |
 | Un préstamo tiene 1 a 3 líneas | — | **solo dominio** |
 | Préstamos y devoluciones inmutables salvo `returned_at` | — | **solo dominio** (por ausencia de operación) |
+| Devolver dos veces la misma línea no suma dos veces | — | **solo dominio** (actualización condicionada a `returned_at IS NULL`) |
 
 Índices de acceso: `book (category_id, title)` parcial sobre activos; `loan (loaned_at)`; `loan_item (book_id)`;
 `loan_item (due_at) WHERE returned_at IS NULL` para vencidos.
