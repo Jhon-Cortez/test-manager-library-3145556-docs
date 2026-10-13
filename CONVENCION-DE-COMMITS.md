@@ -6,19 +6,15 @@ técnica: no cambia el alcance ni las reglas de negocio de [`spec-.net/`](spec-.
 ## Formato
 
 ```text
-<tipo>(<ámbito>): <resumen>
-
-<cuerpo opcional: por qué, no qué>
-
-<pie opcional>
-Refs: T-xx, HU-xx, CA-xx.x, RN-x, RNF-x, ADR-xxx, Issue #n
+<tipo>(<ámbito>): <resumen> [(referencias)]
 ```
 
-- **Resumen**: imperativo, lowercase start, no trailing period, ≤ 72 characters.
-- **Idioma del mensaje: inglés** (tipo, ámbito, resumen, cuerpo y pies). La documentación
-  del producto y los mensajes al usuario siguen en español (artículo XI de la constitución).
-- **Cuerpo**: explica el porqué, no el qué; se separa del resumen con una línea en blanco.
-  Ancho ≤ 72 caracteres.
+- **Una sola línea. Sin cuerpo ni pies:** la motivación vive en el spec, el código y las pruebas.
+- **Resumen**: imperativo, minúscula inicial, sin punto final.
+- **Referencias** opcionales al final, entre paréntesis y separadas por comas: `(HU-06, T-09)`.
+  Use solo las que apliquen: `T-xx`, `HU-xx`, `CA-xx.x`, `RN-x`, `RNF-x`, `ADR-xxx`, `Issue #n`.
+- **Idioma: inglés** (tipo, ámbito y resumen). La documentación del producto y los mensajes al
+  usuario siguen en español (artículo XI de la constitución).
 
 ## Tipos
 
@@ -46,36 +42,19 @@ En `docs` se prefiere el archivo afectado cuando aporta precisión (p. ej. `docs
    1. commit `docs(...)` con la corrección en el spec (el alcance §2 **nunca** se toca);
    2. `push` de `docs`;
    3. recién entonces el commit de código que implementa esa decisión.
-   El cuerpo del commit de código cita el commit de docs que la precede.
-3. **Toda tarea terminada cita su evidencia** (artículo XII): prueba, comando o recorrido que lo demuestra.
-4. **Referencias** en el pie: use solo las que apliquen (`Refs: T-13, ADR-002, Inc #1`).
-5. **Prohibido:** secretos (`.env` real, claves, hashes precalculados), resúmenes tipo `wip` o `fix stuff`,
-   y commits de formato que de paso cambien lógica.
-6. Un `fix` que corrija una tarea ya cerrada reabre la evidencia: el cuerpo explica qué prueba fallaba.
+3. **La evidencia no se promete en el mensaje: se ejecuta** (artículo XII). Cada tarea cerrada
+   tiene una prueba o comando en el repositorio que la demuestra.
+4. **Ramas:** el trabajo sube a `develop`; `main` solo recibe entregas consolidadas.
+5. **Prohibido:** secretos (`.env` real, claves, hashes precalculados), resúmenes tipo `wip` o
+   `fix stuff`, y commits de formato que de paso cambien lógica.
+6. Un `fix` que corrija una tarea ya cerrada reabre su evidencia: añada o corrija la prueba.
 
 ## Ejemplos
 
 ```text
-docs(data-model): declare the book version witness (Issue #1)
-
-ADR-002, plan D-04 and T-13 require a version witness on book, but §3
-did not declare it and §10 would flag the column as extra. The version
-column is documented and its mark in §4 is reclassified.
-
-Refs: ADR-002, T-13, Issue #1
-```
-
-```text
-feat(loans): register loans with limit of 3 and overdue checks
-
-Implements HU-06 behind LendBooksService. The Quantity (>= 0) decision
-was fixed in docs first: 9f3a1c2.
-
-Refs: HU-06, CA-06.4, CA-06.5, T-09
-```
-
-```text
+build(api): bootstrap Laravel 12 application skeleton (T-01)
+feat(health): expose GET /api/v1/health (T-01)
+docs(data-model): declare the book version witness (ADR-002, Issue #1)
+feat(loans): register loans with limit of 3 and overdue checks (HU-06, T-09)
 test(health): cover GET /api/v1/health (T-01)
-
-Refs: T-01
 ```
