@@ -34,8 +34,11 @@ src/Library/
 ├── application/
 │   ├── ports/outbound/  # BookRepository, LoanRepository, MemberRepository, UserRepository,
 │   │                    # ReportReader, Clock, PasswordHasher, TokenIssuer, CoverStorage
-│   └── services/        # LendBooksService, ReturnItemService, CreateBookService, SearchBooksService,
-│                        # OverdueService, MostBorrowedReportService, LoginService, CreateLibrarianService
+│   └── services/        # LoginService, CreateLibrarianService; CreateBookService, UpdateBookService,
+│                        # DeleteBookService, SearchBooksService, UploadCoverService, RemoveCoverService,
+│                        # ListCategoriesService; CreateMemberService, SearchMembersService, GetMemberService;
+│                        # LendBooksService, ReturnItemService, GetLoanService, ListLoansService,
+│                        # OverdueService, MostBorrowedReportService
 ├── adapters/
 │   ├── inbound/http/    # routers/controladores, esquemas de petición, manejo de errores
 │   └── outbound/        # persistence/, storage/, security/
