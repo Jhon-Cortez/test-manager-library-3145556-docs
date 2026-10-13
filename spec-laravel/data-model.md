@@ -73,7 +73,7 @@ Ninguna columna lleva `DEFAULT`: los valores los pone el dominio.
 | `available_copies` | `integer` | no | Entre 0 y `total_copies` |
 | `cover_key` | `varchar(512)` | **sí** | Clave opaca; nunca ruta ni bytes; nunca cadena vacía |
 | `deleted_at` | `timestamptz` | sí | Baja lógica. Nula = activo |
-| `version` | `integer` | no | Testigo de concurrencia optimista ([ADR-002](adr/adr-002-concurrencia-optimista.md)); lo incrementa el dominio al guardar |
+| `version` | `integer` | no | Testigo de concurrencia optimista ([ADR-002](adr/adr-002-concurrencia-optimista.md)); se incrementa en cada guardado exitoso |
 
 **`member`**
 
