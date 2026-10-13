@@ -10,7 +10,8 @@ Qué hace cada operación está en [`spec.md`](spec.md); qué se guarda, en [`da
 | Base | `/api/v1` |
 | Formato | JSON, UTF-8. Nombres de campo en `snake_case` |
 | Identificadores | UUID v4 como texto |
-| Fechas | ISO 8601 en UTC, con `Z` (`2026-10-14T14:15:00Z`) |
+| Instantes | ISO 8601 en UTC, con `Z` (`2026-10-14T14:15:00Z`) |
+| Fechas de filtro (`from`/`to`) | Fecha calendario `AAAA-MM-DD`, ambos inclusive |
 | Dinero | No hay. El sistema no maneja importes |
 | Autenticación | `Authorization: Bearer <token>` en todo salvo `POST /auth/login` y `GET /health` |
 | Paginación | `?page=1&size=20`. `size` máximo 50. La respuesta es `{ "items": [...], "page": 1, "size": 20, "total": 134 }` |
