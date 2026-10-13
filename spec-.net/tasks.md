@@ -6,7 +6,7 @@ Cada tarea termina cuando su **evidencia** existe y se puede ejecutar (artículo
 |---|---|---|---|
 | T-01 | Esqueleto del proyecto y `GET /health` | — | `GET /health` responde `{"status":"ok"}`; el contenedor arranca con un comando |
 | T-02 | Migración inicial: seis tablas, FK, índices únicos y las cinco categorías sembradas | T-01 | Las consultas de `data-model.md` §10 devuelven lo documentado; ninguna columna con `DEFAULT` |
-| T-03 | Dominio: `Isbn`, `Quantity`, `DateRange` (objetos de valor) | T-01 | Pruebas unitarias: ISBN de 13 dígitos, cantidad > 0, fin ≥ inicio |
+| T-03 | Dominio: `Isbn`, `Quantity`, `DateRange`, `DocumentNumber` (objetos de valor) | T-01 | Pruebas unitarias: ISBN de 13 dígitos, cantidad ≥ 0 (0 es válido: disponibles), fin ≥ inicio, documento no vacío |
 | T-04 | Dominio: `Book` (`Withdraw`, `Restock`, baja lógica) | T-03 | Pruebas: nunca < 0, nunca > total |
 | T-05 | Dominio: `Loan` (`AddItem`, `ReturnItem`, estado calculado, 14 días, máx. 3) | T-04 | Pruebas con un `Clock` falso: `open`, `overdue`, `closed` |
 | T-06 | Dominio: `Member` y `User` (normalización de nombre, rol válido) | T-03 | `"Ana "` queda `ana`; rol `admin` por API rechazado |

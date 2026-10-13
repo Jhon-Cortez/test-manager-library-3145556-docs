@@ -30,7 +30,7 @@ Las flechas de dependencia apuntan **hacia adentro**. `bootstrap` es el único q
 
 ```text
 src/Library/
-├── domain/              # Book, Loan, LoanItem, Member, User; Isbn, Quantity, DateRange
+├── domain/              # Book, Loan, LoanItem, Member, User; Isbn, Quantity, DateRange, DocumentNumber
 ├── application/
 │   ├── ports/outbound/  # BookRepository, LoanRepository, MemberRepository, UserRepository,
 │   │                    # ReportReader, Clock, PasswordHasher, TokenIssuer, CoverStorage
