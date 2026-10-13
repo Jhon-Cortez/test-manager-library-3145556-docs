@@ -139,7 +139,7 @@ Libro (respuesta):
 | GET | `/loans` | admin, librarian | Lista: `from`, `to`, `status`, `member_id`, `page`, `size` |
 | GET | `/loans/{id}` | admin, librarian | Detalle con líneas y estado |
 | POST | `/loans/{loan_id}/items/{item_id}/return` | admin, librarian | Devuelve una línea |
-| GET | `/loans/overdue` | admin, librarian | Líneas vencidas |
+| GET | `/loans/overdue` | admin, librarian | Líneas vencidas (se declara antes que `/loans/{id}`, que solo admite UUID) |
 
 `POST /loans`
 
